@@ -65,3 +65,18 @@ aws ec2 describe-security-groups \
   --query "SecurityGroups[*].[GroupName,GroupId]" \
   --output table
   
+
+#List instances
+aws ec2 describe-instances \
+  --query "Reservations[*].Instances[*].[InstanceId,State.Name,PublicIpAddress]" \
+  --output table
+  
+  #Connect to EC2 (SSH)
+ssh -i my-keypair.pem ec2-user@<PUBLIC-IP>
+
+# Stop or Terminate Instance
+#Stop
+aws ec2 stop-instances --instance-ids i-0123456789abcdef0
+
+#Terminate
+aws ec2 terminate-instances --instance-ids i-0123456789abcdef0
