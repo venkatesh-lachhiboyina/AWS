@@ -1,0 +1,38 @@
+
+EFS HANDS On
+
+I have creates a Security group for EFS (EFS-sg) with inbound rule selected as NFS & my current EC2 security group
+
+I have created EFS with basic options
+
+then I have created a accesspoint
+
+We create EFS Access Points to provide application-specific access, enforce permissions, and isolate data when multiple workloads share the same EFS file system. 
+
+while creating access points I have used my EFS-SG there
+
+
+
+then I have used AWS EFS documentation and mounted my efs to my server
+
+here I installed pre reqs
+sudo yum install -y amazon-efs-utils
+
+
+after that i have seen tha option like
+
+Automatically mounting file systems
+Existing EC2 Linux instances
+
+there I choose how to Update the /etc/fstab file with accesspoint option
+
+To automatically mount a file system using an EFS access point, add the following line to the /etc/fstab file.
+
+file-system-id:/ efs-mount-point efs _netdev,noresvport,tls,accesspoint=access-point-id 0 0
+fs-07795e0b930a13444:/ /var/www/html/images efs _netdev,noresvport,tls,accesspoint=fsap-0600e702c2a921617 0 0
+
+I have updated this on linux with vim /etc/fstab
+
+then I used mount -a command to mount 
+
+now my server connected to EFS not a local storage.
