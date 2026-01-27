@@ -11,6 +11,11 @@ We create EFS Access Points to provide application-specific access, enforce perm
 
 while creating access points I have used my EFS-SG there
 
+after that I have ssh my instance its already have a web service /var/www/html
+
+I have creates a directory /tmp/images 
+and I have moved all files in /var/www/html/images to /tmp/images
+
 
 
 then I have used AWS EFS documentation and mounted my efs to my server
@@ -34,5 +39,7 @@ fs-07795e0b930a13444:/ /var/www/html/images efs _netdev,noresvport,tls,accesspoi
 I have updated this on linux with vim /etc/fstab
 
 then I used mount -a command to mount 
+
+then I moved all images in tmp to /var/www/html/images
 
 now my server connected to EFS not a local storage.
