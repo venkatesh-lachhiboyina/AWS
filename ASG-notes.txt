@@ -1,5 +1,7 @@
 ASG notes
 
+key point : always use shared storage (EFS)
+
 ASG (Auto Scaling Group) in AWS 🚀
 
 -An Auto Scaling Group (ASG) is an AWS service that automatically manages EC2 instances for you so your application always has the right number of servers running.
