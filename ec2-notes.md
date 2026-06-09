@@ -242,3 +242,50 @@ terraform init
 terraform plan
 terraform apply
 
+
+Most Common EC2 Interview Questions
+What is EC2?
+
+EC2 is a service used to create and manage virtual servers in AWS.
+
+What is an AMI?
+
+A template used to launch EC2 instances.
+
+What is a Security Group?
+
+A stateful firewall that controls inbound and outbound traffic.
+
+What is a Key Pair?
+
+A public/private key mechanism used to securely SSH into EC2 instances.
+
+Difference between Stop and Terminate?
+Stop
+→ Can start again
+
+Terminate
+→ Permanently deleted
+Why use EC2?
+Scalable
+Pay-as-you-go
+Quick provisioning
+Global availability
+EC2 Interview Quick Revision
+EC2 = Virtual Machine
+
+AMI = OS Template
+
+Instance Type = CPU + RAM
+
+Key Pair = SSH Access
+
+Security Group = Firewall
+
+Public IP = Internet Access
+
+Stop = Temporary
+
+Terminate = Permanent Delete
+
+If you can confidently explain these concepts and troubleshoot SSH issues, you'll answer most junior DevOps EC2 interview questions well.
