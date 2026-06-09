@@ -163,3 +163,82 @@ cat /etc/os-release
 Check uptime:
 
 uptime
+
+EC2 Troubleshooting
+Cannot SSH
+
+Check:
+
+1. Security Group
+
+Port:
+
+22
+
+must be open.
+
+2. Public IP
+
+Verify:
+
+Correct Public IPv4
+3. Key Pair
+
+Correct .pem file?
+
+4. Username
+
+Examples:
+
+Amazon Linux → ec2-user
+Ubuntu → ubuntu
+RHEL → ec2-user
+5. Instance Running?
+State = Running
+Status Checks = Passed
+EC2 + Docker
+
+Real DevOps architecture:
+
+AWS EC2
+    ↓
+Docker Engine
+    ↓
+Nginx Container
+    ↓
+Java Container
+    ↓
+NodeJS Container
+
+EC2 provides the VM.
+
+Docker runs applications inside the VM.
+
+EC2 + Ansible
+
+Inventory:
+
+all:
+  hosts:
+    web01:
+      ansible_host: 54.x.x.x
+      ansible_user: ec2-user
+
+Deploy:
+
+ansible-playbook nginx.yml
+EC2 + Terraform
+
+Create EC2:
+
+resource "aws_instance" "web" {
+  ami           = "ami-xxxx"
+  instance_type = "t2.micro"
+}
+
+Run:
+
+terraform init
+terraform plan
+terraform apply
+
