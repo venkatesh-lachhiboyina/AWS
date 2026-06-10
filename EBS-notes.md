@@ -123,3 +123,93 @@ backups
 rarely accessed data
 
 Very slow.
+
+Important Terms
+Volume
+
+The actual virtual disk.
+
+Example:
+
+20GB EBS volume
+Snapshot
+
+Backup of EBS volume stored in Amazon Simple Storage Service.
+
+You can:
+
+restore volume
+create new volumes
+recover data
+
+Real-time use:
+
+before production deployment take snapshot
+IOPS
+
+Input Output Operations Per Second.
+
+Measures disk speed.
+
+Higher IOPS = faster disk performance.
+
+Encryption
+
+EBS supports encryption using AWS Key Management Service.
+
+Used for:
+
+security compliance
+protecting sensitive data
+EBS Lifecycle Example
+Step 1
+
+Launch EC2.
+
+Step 2
+
+Attach EBS volume.
+
+Step 3
+
+Mount volume in Linux.
+
+Example:
+
+lsblk
+sudo mkfs -t xfs /dev/xvdf
+sudo mkdir /data
+sudo mount /dev/xvdf /data
+Resize EBS Volume
+
+Suppose disk becomes full.
+
+You can increase:
+
+20GB → 50GB
+
+Without server downtime (mostly).
+
+Steps:
+
+Modify volume in AWS
+Extend filesystem in Linux
+
+Example:
+
+sudo growpart /dev/xvda 1
+sudo xfs_growfs -d /
+EBS vs Instance Store
+Feature	EBS	Instance Store
+Persistent	Yes	No
+Data after stop	Remains	Lost
+Best for	Long-term storage	Temporary cache
+Backup	Snapshot supported	No snapshot
+Multi-Attach
+
+Some io1/io2 volumes support attaching to multiple EC2s simultaneously.
+
+Used in:
+
+clustered applications
+high availability systems
