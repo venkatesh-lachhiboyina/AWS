@@ -16,10 +16,14 @@ so, unmount it using
 umoumt /var/www/html
 
 then now we can do permanant mount 
+
 vi /etc/fstab
+
 file system        path        mkfs   defaults   0(fsk) 0(dump)
+
 ex: /dev/xvdf1   /var/www/html  ext4  dfaults    0      0
-save the file and 
+save the file and
+
 
 use mount -a, now its mounted 
 check df -h
