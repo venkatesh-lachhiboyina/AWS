@@ -213,3 +213,99 @@ Used in:
 
 clustered applications
 high availability systems
+
+Monitoring
+
+Use Amazon CloudWatch for:
+
+disk read/write metrics
+IOPS monitoring
+burst balance
+latency
+Common DevOps Tasks with EBS
+1. Increase disk size
+
+Production disk full.
+
+2. Create snapshots
+
+Before deployments/upgrades.
+
+3. Restore failed server
+
+Attach old EBS to new EC2.
+
+4. Separate disks
+
+Example:
+
+OS in one volume
+logs in another
+DB in another
+Interview Questions
+What is EBS?
+
+Block storage service for EC2.
+
+Difference between EBS and S3?
+EBS	S3
+Block storage	Object storage
+Attached to EC2	Access via API
+Low latency	High scalability
+Used as disk	Used for files/backups
+Can we attach EBS to multiple EC2?
+
+Normally no.
+
+Only supported in some io1/io2 multi-attach cases.
+
+What happens if EC2 is terminated?
+
+Depends on “Delete on Termination” setting.
+
+What is snapshot?
+
+Backup of EBS stored in S3.
+
+Real-Time Architecture Example
+Users
+  ↓
+Load Balancer
+  ↓
+EC2 Application Server
+  ↓
+EBS Volume
+  ↓
+Database / Logs / Application Files
+Important Commands for Linux + EBS
+
+Check disks:
+
+lsblk
+
+Check filesystem:
+
+df -h
+
+Mount disk:
+
+mount /dev/xvdf /data
+
+UUID entry in fstab:
+
+blkid
+
+Auto mount:
+
+/etc/fstab
+Best Practices
+Use gp3 for most workloads
+Take snapshots regularly
+Enable encryption
+Monitor disk usage
+Separate application/log/database volumes
+Delete unused snapshots to save cost
+Easy Memory Trick
+EBS = Elastic Block Storage
+Acts like a hard disk for EC2
+Persistent storage
